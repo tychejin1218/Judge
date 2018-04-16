@@ -2,12 +2,11 @@ package online.judge.problem;
 
 import java.util.Scanner;
 
-public class problem_2439 {
+public class problem_2441 {
 
 	public static void main(String args[]) {
 
 		int num;
-
 		Scanner scanner = new Scanner(System.in);
 		num = scanner.nextInt();
 
@@ -17,14 +16,18 @@ public class problem_2439 {
 
 				for (int b = 0; b < num; b++) {
 
-					if (num > a + b + 1) {
-						System.out.print(" ");
+					if (a <= b) {
+
+						if (num == b + 1) {
+							System.out.println("*");
+						} else {
+							System.out.print("*");							
+						}
+
 					} else {
-						System.out.print("*");
+						System.out.print(" ");
 					}
 				}
-
-				System.out.println();
 			}
 		}
 	}
