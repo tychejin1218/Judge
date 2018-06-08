@@ -8,102 +8,91 @@ import java.util.LinkedList;
 
 public class problem_9012 {
 
-    static LinkedList<String> listResult = null;
+	static LinkedList<String> listResult = null;
 
-    public static void main( String[] args ) {
+	public static void main(String[] args) {
 
-        BufferedReader br = null;
-        BufferedWriter bw = null;
+		BufferedReader br = null;
+		BufferedWriter bw = null;
 
-        try {
+		try {
 
-            listResult = new LinkedList<String>();
+			listResult = new LinkedList<String>();
 
-            br = new BufferedReader( new InputStreamReader( System.in ) );
-            bw = new BufferedWriter( new OutputStreamWriter( System.out ) );
+			br = new BufferedReader(new InputStreamReader(System.in));
+			bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-            int N = Integer.parseInt( br.readLine() );
+			int N = Integer.parseInt(br.readLine());
 
-            for ( int a = 0 ; a < N ; a ++ ) {
+			for (int a = 0; a < N; a++) {
 
-                String str = br.readLine();
+				String str = br.readLine();
 
-                listResult.add( getVPS( str ) );
-            }
+				listResult.add(getVPS(str));
+			}
 
-            if ( listResult.size() > 0 ) {
-                for ( String listResult : listResult ) {
-                    bw.write( listResult + "\n" );
-                }
-            }
+			if (listResult.size() > 0) {
+				for (String listResult : listResult) {
+					bw.write(listResult + "\n");
+				}
+			}
 
-        } catch ( Exception e ) {
-            e.getMessage();
-        } finally {
-            if ( bw != null ) {
-                try {
-                    bw.close();
-                } catch ( Exception e ) {
-                    e.getMessage();
-                }
-            }
-        }
-    }
+		} catch (Exception e) {
+			e.getMessage();
+		} finally {
+			if (bw != null) {
+				try {
+					bw.close();
+				} catch (Exception e) {
+					e.getMessage();
+				}
+			}
+		}
+	}
 
-    private static String getVPS( String str ) {
+	private static String getVPS(String str) {
 
-        String result = "YES";
-        
-        LinkedList<String> list = new LinkedList<String>();
-        
-        int strLen = str.length();
-        if ( strLen > 0 ) {
+		String result = "YES";
 
-            String firstStr = str.substring( 0 , 1 );
-            String lastStr = str.substring( strLen - 1 , strLen );
+		LinkedList<String> list = new LinkedList<String>();
 
-            if ( !( "(".equals( firstStr ) ) ) {
-                result = "NO";
-            } else if ( !( ")".equals( lastStr ) ) ) {
-                result = "NO";
-            } else {
+		int strLen = str.length();
+		if (strLen > 0) {
 
-                boolean removeYN = false;
-                
-                for ( int a = 0 ; a < strLen ; a ++ ) {
-                    
-                    String tempStr = str.substring( a , a + 1 );
-                    
-                    if ( "(".equals( tempStr ) ) {
+			String firstStr = str.substring(0, 1);
+			String lastStr = str.substring(strLen - 1, strLen);
 
-                        if ( removeYN ) {
-                            if ( list.size() != 0 ) {
-                                result = "NO";
-                                break;
-                            }
-                        } else {
-                            list.add( tempStr );
-                            removeYN = false;
-                        }
+			if (!("(".equals(firstStr))) {
+				result = "NO";
+			} else if (!(")".equals(lastStr))) {
+				result = "NO";
+			} else {
 
-                    } else if ( ")".equals( tempStr ) ) {
-                        
-                        if ( list.size() > 0 ) {
-                            list.removeFirst();
-                            removeYN = true;
-                        } else {
-                            result = "NO";
-                            break;
-                        }
-                    }
-                }
+				for (int a = 0; a < strLen; a++) {
 
-                if ( list.size() > 0 ) {
-                    result = "NO";
-                }
-            }
-        }
+					String tempStr = str.substring(a, a + 1);
+					
+					if ("(".equals(tempStr)) {
 
-        return result;
-    }
+						list.add(tempStr);
+
+					} else if (")".equals(tempStr)) {
+
+						if (list.size() > 0) {
+							list.removeFirst();
+						} else {
+							result = "NO";
+							break;
+						}
+					}
+				}
+
+				if (list.size() > 0) {
+					result = "NO";
+				}
+			}
+		}
+
+		return result;
+	}
 }
