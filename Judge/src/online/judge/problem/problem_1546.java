@@ -84,7 +84,5 @@ public class problem_1546 {
 				}
 			}
 		}
-
 	}
-
 }
