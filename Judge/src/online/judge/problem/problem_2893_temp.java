@@ -2,7 +2,7 @@ package online.judge.problem;
 
 import java.util.Scanner;
 
-public class problem_2894_1 {
+public class problem_2893_temp {
 	public static void main( String args[] ) {
 
         String str;
