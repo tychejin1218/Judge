@@ -10,7 +10,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-public class problem_2750 {
+public class problem_2751 {
 
 	public static void main(String[] args) {
 
@@ -25,7 +25,7 @@ public class problem_2750 {
 			List<Integer> listN = new ArrayList<Integer>();
 
 			int N = Integer.parseInt(br.readLine());
-			if (N >= 1 && N <= 1000) {
+			if (N >= 1 && N <= 1000000) {
 				for (int a = 0; a < N; a++) {
 					listN.add(Integer.parseInt(br.readLine()));
 				}
@@ -58,8 +58,8 @@ public class problem_2750 {
 				}
 			}
 		}
-	}	
-	
+	}
+
 	static class compareAsc implements Comparator<Integer> {
 		@Override
 		public int compare(Integer o1, Integer o2) {
@@ -73,5 +73,4 @@ public class problem_2750 {
 			return o2.compareTo(o1);
 		}
 	}
-	
 }
