@@ -68,6 +68,7 @@ public class problem_2108 {
 				try {
 					bw.close();
 				} catch (Exception e) {
+					e.getMessage();
 				}
 			}
 		}
